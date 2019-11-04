@@ -5,15 +5,18 @@
              version="2.0">
 
 
-    <persistence-unit name="hibernatejpa" transaction-type="RESOURCE_LOCAL">
+    <persistence-unit name="companhia" transaction-type="RESOURCE_LOCAL">
         <provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
 
         <!--Classes mapeadas-->
-        <class>br.com.persistencia.java.Lembrete</class>
+        <class>br.com.persistencia.java.model.Funcionario</class>
+        <class>br.com.persistencia.java.model.Pesquisador</class>
+        <class>br.com.persistencia.java.model.Secretario</class>
+        <class>br.com.persistencia.java.model.FuncionarioLimpeza</class>
 
         <!--?createDatabaseIfNotExist=true-->
         <properties>
-            <property name="javax.persistence.jdbc.url" value="jdbc:mysql://localhost:3306/hibernatejpa"/>
+            <property name="javax.persistence.jdbc.url" value="jdbc:mysql://localhost:3306/companhia?createDatabaseIfNotExist=true"/>
             <property name="javax.persistence.jdbc.user" value="root"/>
             <property name="javax.persistence.jdbc.password" value="12345678"/>
             <property name="javax.persistence.jdbc.driver" value="com.mysql.jdbc.Driver"/>
