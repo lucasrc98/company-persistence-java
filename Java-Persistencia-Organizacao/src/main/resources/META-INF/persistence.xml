@@ -15,6 +15,7 @@
         <class>br.com.persistencia.java.model.FuncionarioLimpeza</class>
         <class>br.com.persistencia.java.model.Dependente</class>
         <class>br.com.persistencia.java.model.Departamento</class>
+        <class>br.com.persistencia.java.model.Projeto</class>
 
 
         <!--?createDatabaseIfNotExist=true-->
