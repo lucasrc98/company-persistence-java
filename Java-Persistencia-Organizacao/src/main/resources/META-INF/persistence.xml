@@ -16,6 +16,8 @@
         <class>br.com.persistencia.java.model.Dependente</class>
         <class>br.com.persistencia.java.model.Departamento</class>
         <class>br.com.persistencia.java.model.Projeto</class>
+        <class>br.com.persistencia.java.model.HorasTrabalhadas</class>
+
 
 
         <!--?createDatabaseIfNotExist=true-->
