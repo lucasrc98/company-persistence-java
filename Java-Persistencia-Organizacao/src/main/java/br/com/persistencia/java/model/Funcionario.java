@@ -3,7 +3,7 @@ package br.com.persistencia.java.model;
 import javax.persistence.*;
 
 @Entity
-public class Funcionario {
+public abstract class Funcionario {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
