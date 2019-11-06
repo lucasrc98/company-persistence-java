@@ -1,18 +1,18 @@
-package br.com.persistencia.java.daoImplements;
+package br.com.persistencia.java.service;
 
 import br.com.persistencia.java.dao.FuncionarioDAO;
 import br.com.persistencia.java.model.Funcionario;
 import br.com.persistencia.java.util.Util;
 
+import javax.persistence.EntityManager;
 import java.util.List;
 
-public class FuncionarioDaoImpl implements FuncionarioDAO {
+public class FuncionarioService implements FuncionarioDAO{
 
 
 
     public void save(Funcionario funcionario){
 //        entityManagerFactory = Persistence.createEntityManagerFactory("hibernatejpa");
-//
 //        EntityManager em = entityManagerFactory.createEntityManager();
 
         Util.getEntityManager();
@@ -30,11 +30,44 @@ public class FuncionarioDaoImpl implements FuncionarioDAO {
             close();
         }
     }
-    public void delete(Funcionario funcionario){
 
+    @Override
+    public void delete(Funcionario funcionario) {
+        Util.getEntityManager();
+
+        try {
+            beginTransaction();
+            Util.getEntityManager().remove(funcionario);
+            commit();
+        }catch (Exception e){
+            rollback();
+
+            System.out.println("REMOVE: " + e.getMessage());
+        }finally {
+
+            close();
+        }
     }
-    public void deleteById(long id){
 
+
+    public void deleteById(long idFuncionarioDelete){
+
+        EntityManager em = Util.getEntityManager();
+        Funcionario funcionarioDelete = null;
+
+        try {
+            funcionarioDelete = em.find(Funcionario.class, idFuncionarioDelete);
+
+            em.getTransaction().begin();
+            em.remove(funcionarioDelete);
+            em.getTransaction().commit();
+        }catch (Exception e){
+
+            rollback();
+            System.out.println("DELETE: " + e.getMessage());
+        }finally {
+            close();
+        }
     }
     public Funcionario find(long id){
 

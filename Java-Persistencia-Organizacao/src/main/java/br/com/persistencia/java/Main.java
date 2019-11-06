@@ -1,13 +1,12 @@
 package br.com.persistencia.java;
 
-import br.com.persistencia.java.model.Funcionario;
 import br.com.persistencia.java.model.FuncionarioLimpeza;
+import br.com.persistencia.java.model.Funcionario;
 import br.com.persistencia.java.model.Pesquisador;
+import br.com.persistencia.java.service.FuncionarioService;
 
-import br.com.persistencia.java.daoImplements.FuncionarioDaoImpl;
-
-import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
+import javax.persistence.EntityManager;
 import javax.persistence.Persistence;
 import java.util.List;
 
@@ -18,7 +17,7 @@ public class Main {
 
     public static void main (String args[]){
 
-        FuncionarioDaoImpl daoImpl = new FuncionarioDaoImpl();
+        FuncionarioService funService = new FuncionarioService();
 
 
 
@@ -33,7 +32,8 @@ public class Main {
         funcionario1.setNomeFuncionario("Juvenal");
         funcionario1.setSalarioFuncionario(20000);
 
-        daoImpl.save(funcionario1);
+//      funService.save(funcionario1);
+        funService.deleteById(2);
 
 
 
