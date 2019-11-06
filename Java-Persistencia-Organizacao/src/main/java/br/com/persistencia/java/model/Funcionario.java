@@ -1,6 +1,11 @@
 package br.com.persistencia.java.model;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import javax.persistence.*;
+
+import org.hibernate.annotations.Cascade;
 
 @Entity
 public class Funcionario {
@@ -14,6 +19,14 @@ public class Funcionario {
     private String sexoFuncionario;
     private String dataAniversario;
     private double salarioFuncionario;
+    
+    @OneToMany(mappedBy="idFuncionario", orphanRemoval = true)
+    @Cascade(org.hibernate.annotations.CascadeType.ALL)
+    private List<Dependente> dependente = new ArrayList<Dependente>();
+    
+    @ManyToOne
+    @JoinColumn(name = "idDepartamento", nullable = false)
+    private Departamento departamento;
 
     public long getIdFuncionario() {
         return idFuncionario;
@@ -65,6 +78,14 @@ public class Funcionario {
 
     public Funcionario() {
     }
+    
+    public List<Dependente> getDependente() {
+		return dependente;
+	}
+
+	public void setDependente(List<Dependente> dependente) {
+		this.dependente = dependente;
+	}
 
     @Override
     public String toString() {
@@ -77,4 +98,5 @@ public class Funcionario {
                 ", salarioFuncionario=" + salarioFuncionario +
                 '}';
     }
+
 }

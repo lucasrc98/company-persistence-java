@@ -1,17 +1,24 @@
 package br.com.persistencia.java.model;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
 @Entity
 public class Projeto {
 
-    @Id
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Column(name = "projeto_pk")
     private long idProjeto;
 
     private String nomeProjeto;
     private float tempoDesenvolvimento;
 
+    
+   
     public long getIdProjeto() {
         return idProjeto;
     }
