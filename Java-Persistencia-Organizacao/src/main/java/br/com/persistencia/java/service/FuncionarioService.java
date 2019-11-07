@@ -69,9 +69,24 @@ public class FuncionarioService implements FuncionarioDAO{
             close();
         }
     }
-    public Funcionario find(long id){
+    public Funcionario findById(long idFuncionario){
 
-        return null;
+        EntityManager em = Util.getEntityManager();
+        Funcionario funcionario = null;
+
+        try {
+
+            funcionario = em.find(Funcionario.class, idFuncionario);
+
+        }catch (Exception e){
+
+            rollback();
+            System.out.println("FIND BY ID: " + e.getMessage());
+        }finally {
+            close();
+        }
+        System.out.println(funcionario);
+        return funcionario;
     }
     public List<Funcionario> findAll(){
 

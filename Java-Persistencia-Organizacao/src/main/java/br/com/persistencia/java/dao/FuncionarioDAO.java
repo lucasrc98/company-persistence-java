@@ -9,7 +9,7 @@ public interface FuncionarioDAO {
     public void save(Funcionario funcionario);
     public void delete(Funcionario funcionario);
     public void deleteById(long id);
-    public Funcionario find(long id);
+    public Funcionario findById(long id);
     public List<Funcionario> findAll();
 
     public void beginTransaction();

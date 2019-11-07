@@ -21,19 +21,16 @@ public class Main {
 
 
 
+        Funcionario funcionario2 = new FuncionarioLimpeza();
 
-
-
-
-        Funcionario funcionario1 = new FuncionarioLimpeza();
-
-        funcionario1.setDataAniversario("10/10/2000");
-        funcionario1.setEnderecoFuncionario("Basilio Pinto");
-        funcionario1.setNomeFuncionario("Juvenal");
-        funcionario1.setSalarioFuncionario(20000);
+        funcionario2.setDataAniversario("10/10/2000");
+        funcionario2.setEnderecoFuncionario("Basilio Pinto");
+        funcionario2.setNomeFuncionario("Juvenal");
+        funcionario2.setSalarioFuncionario(20000);
 
 //      funService.save(funcionario1);
-        funService.deleteById(2);
+//      funService.deleteById(2);
+//      funService.findById(1);
 
 
 
