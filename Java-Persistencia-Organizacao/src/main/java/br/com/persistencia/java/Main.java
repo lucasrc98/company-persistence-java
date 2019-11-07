@@ -1,10 +1,8 @@
 package br.com.persistencia.java;
 
-import br.com.persistencia.java.model.Departamento;
-import br.com.persistencia.java.model.FuncionarioLimpeza;
-import br.com.persistencia.java.model.Funcionario;
-import br.com.persistencia.java.model.Pesquisador;
+import br.com.persistencia.java.model.*;
 import br.com.persistencia.java.service.DepartamentoService;
+import br.com.persistencia.java.service.DependenteService;
 import br.com.persistencia.java.service.FuncionarioService;
 
 import javax.persistence.EntityManagerFactory;
@@ -21,6 +19,7 @@ public class Main {
 
         FuncionarioService funService = new FuncionarioService();
         DepartamentoService depService = new DepartamentoService();
+        DependenteService dependenteService = new DependenteService();
 
         FuncionarioLimpeza funcionario1 = new FuncionarioLimpeza();
         FuncionarioLimpeza funcionario2 = new FuncionarioLimpeza();
@@ -93,6 +92,24 @@ public class Main {
 
         /*  DEPENDENTES */
 
+        Dependente dependente1 = new Dependente();
+        Dependente dependente2 = new Dependente();
+
+        dependente1.setNomeDependente("Fulando dependente");
+        dependente1.setParentescoDependente("Filho");
+        dependente1.setSexoDependente("Masculino");
+        dependente1.setAniversarioDependente("30/06/2005");
+
+        dependente2.setNomeDependente("Ciclano dependente");
+        dependente2.setParentescoDependente("Neto");
+        dependente2.setSexoDependente("Feminino");
+        dependente2.setAniversarioDependente("7/08/2004");
+
+//        dependenteService.save(dependente1);
+//        dependenteService.save(dependente2);
+//        dependenteService.findById(0);
+//        dependenteService.findAll();
+//        dependenteService.deleteById(0);
 
 
 
