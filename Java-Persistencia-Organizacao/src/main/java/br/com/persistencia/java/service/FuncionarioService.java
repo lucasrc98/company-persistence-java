@@ -100,7 +100,7 @@ public class FuncionarioService implements FuncionarioDAO{
             }catch (Exception e){
                 System.out.println("List ALL: " + e.getMessage());
             }finally {
-                em.close();
+                close();
             }
 
             if(funcionarios != null){
