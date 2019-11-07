@@ -88,9 +88,26 @@ public class FuncionarioService implements FuncionarioDAO{
         System.out.println(funcionario);
         return funcionario;
     }
-    public List<Funcionario> findAll(){
 
-        return null;
+    public List<Funcionario> findAll(){
+        EntityManager em = Util.getEntityManager();
+
+        List <Funcionario> funcionarios = null;
+
+            try {
+                funcionarios = em.createQuery("from Funcionario ") .getResultList();
+
+            }catch (Exception e){
+                System.out.println("List ALL: " + e.getMessage());
+            }finally {
+                em.close();
+            }
+
+            if(funcionarios != null){
+                funcionarios.forEach(System.out::println);
+            }else
+                System.out.println("Nenhum funcionario encontrado");
+        return funcionarios;
     }
 
 
