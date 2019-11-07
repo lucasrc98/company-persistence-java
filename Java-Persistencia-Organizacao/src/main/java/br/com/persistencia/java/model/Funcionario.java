@@ -1,12 +1,18 @@
 package br.com.persistencia.java.model;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import javax.persistence.*;
+
+import org.hibernate.annotations.Cascade;
+import org.hibernate.annotations.ForeignKey;
 
 @Entity
 public abstract class Funcionario {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE)
     private long idFuncionario;
 
     private String nomeFuncionario;
@@ -14,6 +20,15 @@ public abstract class Funcionario {
     private String sexoFuncionario;
     private String dataAniversario;
     private double salarioFuncionario;
+    
+    @OneToMany(mappedBy="funcionario", orphanRemoval = true)
+    @Cascade(org.hibernate.annotations.CascadeType.ALL)
+    private List<Dependente> dependente = new ArrayList<Dependente>();
+    
+    @ManyToOne
+	@JoinColumn(name="departamento_id", referencedColumnName = "idDepartamento", nullable = false)
+    @ForeignKey(name = "fk_departamento_id")
+    private Departamento departamento;
 
     public long getIdFuncionario() {
         return idFuncionario;
@@ -65,6 +80,14 @@ public abstract class Funcionario {
 
     public Funcionario() {
     }
+    
+//    public List<Dependente> getDependente() {
+//		return dependente;
+//	}
+//
+//	public void setDependente(List<Dependente> dependente) {
+//		this.dependente = dependente;
+//	}
 
     @Override
     public String toString() {
@@ -77,4 +100,5 @@ public abstract class Funcionario {
                 ", salarioFuncionario=" + salarioFuncionario +
                 '}';
     }
+
 }

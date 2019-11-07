@@ -1,18 +1,31 @@
 package br.com.persistencia.java.model;
 
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+
+import org.hibernate.annotations.ForeignKey;
+
 
 @Entity
 public class Dependente {
 
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long idDependente;
 
-    private  String nomeDependente;
+    private String nomeDependente;
     private String sexoDependente;
     private String aniversarioDependente;
     private String parentescoDependente;
+
+    @ManyToOne
+	@JoinColumn(name="funcionario_id", referencedColumnName = "idFuncionario", nullable = false)
+    @ForeignKey(name = "fk_funcionario")
+    private Funcionario funcionario;
 
     public long getIdDependente() {
         return idDependente;
@@ -53,6 +66,14 @@ public class Dependente {
     public void setParentescoDependente(String parentescoDependente) {
         this.parentescoDependente = parentescoDependente;
     }
+    
+    public Funcionario getFuncionario() {
+		return funcionario;
+	}
+
+	public void setFuncionario(Funcionario funcionario) {
+		this.funcionario = funcionario;
+	}
 
     public Dependente() {
     }
@@ -67,4 +88,5 @@ public class Dependente {
                 ", parentescoDependente='" + parentescoDependente + '\'' +
                 '}';
     }
+
 }
