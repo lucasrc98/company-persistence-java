@@ -25,19 +25,11 @@ public class Departamento {
     private String nomeDepartamento;
     private int numeroDepartamento;
     
-    @OneToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "projeto_fk")
-    private Projeto projeto;
-    
-    
-    public Projeto getProjeto() {
-		return projeto;
-	}
-
-	public void setProjeto(Projeto projeto) {
-		this.projeto = projeto;
-	}
-
+    @OneToMany(mappedBy="departamento", orphanRemoval = true)
+    @Cascade(org.hibernate.annotations.CascadeType.ALL)
+    private List<Projeto> projeto = new ArrayList<Projeto>();
+	
+	
 	  
      @OneToMany(mappedBy="departamento", orphanRemoval = true)
      @Cascade(org.hibernate.annotations.CascadeType.ALL)

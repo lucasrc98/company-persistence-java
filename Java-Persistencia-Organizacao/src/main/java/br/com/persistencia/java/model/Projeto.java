@@ -7,6 +7,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 
 
 @Entity
@@ -19,10 +20,22 @@ public class Projeto {
 
     private String nomeProjeto;
     private float tempoDesenvolvimento;
-
+    
+    @ManyToOne
+    private Departamento departamento;
+     
+    
     
    
-    public long getIdProjeto() {
+    public Departamento getDepartamento() {
+		return departamento;
+	}
+
+	public void setDepartamento(Departamento departamento) {
+		this.departamento = departamento;
+	}
+
+	public long getIdProjeto() {
         return idProjeto;
     }
 
