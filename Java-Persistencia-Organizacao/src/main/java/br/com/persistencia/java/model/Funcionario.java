@@ -12,7 +12,7 @@ import org.hibernate.annotations.ForeignKey;
 public abstract class Funcionario {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Inheritance(strategy = InheritanceType.JOINED)
     private long idFuncionario;
 
     private String nomeFuncionario;
@@ -81,15 +81,25 @@ public abstract class Funcionario {
     public Funcionario() {
     }
     
-//    public List<Dependente> getDependente() {
-//		return dependente;
-//	}
-//
-//	public void setDependente(List<Dependente> dependente) {
-//		this.dependente = dependente;
-//	}
+    public List<Dependente> getDependente() {
+		return dependente;
+	}
 
-    @Override
+	public void setDependente(List<Dependente> dependente) {
+		this.dependente = dependente;
+	}
+	
+	
+
+    public Departamento getDepartamento() {
+		return departamento;
+	}
+
+	public void setDepartamento(Departamento departamento) {
+		this.departamento = departamento;
+	}
+
+	@Override
     public String toString() {
         return "Funcionario{" +
                 "idFuncionario=" + idFuncionario +

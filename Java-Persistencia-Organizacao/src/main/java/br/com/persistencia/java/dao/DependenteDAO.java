@@ -6,7 +6,7 @@ import java.util.List;
 
 public interface DependenteDAO {
 
-    public void save(Dependente dependente);
+    public void save(Dependente dependente, int idFuncionario);
     public void delete(Dependente dependente);
     public void deleteById(long id);
     public Dependente findById(long id);

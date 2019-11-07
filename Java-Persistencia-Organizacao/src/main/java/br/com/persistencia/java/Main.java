@@ -61,9 +61,9 @@ public class Main {
         funcionario4.setAreaAtuacao("Banco de Dados");
 
 
-//      funService.save(funcionario1);
-//      funService.save(funcionario2);
-//      funService.save(funcionario3);
+//        funService.save(funcionario1, 1);
+//        funService.save(funcionario2, 1);
+      funService.save(funcionario3, 1);
 //      funService.save(funcionario4);
 
 //      funService.findById();
@@ -82,7 +82,7 @@ public class Main {
         departamento2.setNomeDepartamento("Departamento gg");
         departamento2.setNumeroDepartamento(002);
 
-//        depService.save(departamento1);
+//          depService.save(departamento1);
 //        depService.save(departamento2);
 //
 //
@@ -126,7 +126,7 @@ public class Main {
 
 
 //        projService.save(projeto1);
-        projService.save(projeto2);
+//        projService.save(projeto2);
 //
 //        projService.findAll();
 //        projService.findById(0);

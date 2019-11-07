@@ -1,8 +1,10 @@
 package br.com.persistencia.java.model;
 
 import javax.persistence.Entity;
+import javax.persistence.PrimaryKeyJoinColumn;
 
 @Entity
+@PrimaryKeyJoinColumn(name = "idSecretario")
 public class Secretario extends Funcionario {
 
     private String grauEscolaridade;

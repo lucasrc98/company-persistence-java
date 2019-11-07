@@ -1,9 +1,11 @@
 package br.com.persistencia.java.model;
 
 import javax.persistence.Entity;
+import javax.persistence.PrimaryKeyJoinColumn;
 
 
 @Entity
+@PrimaryKeyJoinColumn(name = "idPesquisador")
 public class Pesquisador extends Funcionario {
 
     private String areaAtuacao;

@@ -11,15 +11,17 @@ public class FuncionarioService implements FuncionarioDAO{
 
 
     @Override
-    public void save(Funcionario funcionario){
+    public void save(Funcionario funcionario, int idDepartamento){
 //        entityManagerFactory = Persistence.createEntityManagerFactory("hibernatejpa");
 //        EntityManager em = entityManagerFactory.createEntityManager();
-
+    	DepartamentoService departamentoService = new DepartamentoService();
+    	funcionario.setDepartamento(departamentoService.findById(idDepartamento));
         Util.getEntityManager();
 
         try {
             beginTransaction();
             Util.getEntityManager().persist(funcionario);
+            
             commit();
         }catch (Exception e){
             rollback();
