@@ -41,6 +41,7 @@ public class DepartamentoService implements DepartamentoDAO {
         }
     }
 
+    @Override
     public void deleteById(long idDepartamento){
 
         EntityManager em = Util.getEntityManager();
@@ -61,6 +62,7 @@ public class DepartamentoService implements DepartamentoDAO {
         }
     }
 
+    @Override
     public Departamento findById(long idDepartamento){
 
         EntityManager em = Util.getEntityManager();
@@ -78,6 +80,7 @@ public class DepartamentoService implements DepartamentoDAO {
         return departamento;
     }
 
+    @Override
     public List<Departamento> findAll(){
         EntityManager em = Util.getEntityManager();
         List <Departamento> departamentos = null;

@@ -1,29 +1,24 @@
 package br.com.persistencia.java.service;
 
-import br.com.persistencia.java.dao.FuncionarioDAO;
-import br.com.persistencia.java.model.Funcionario;
+import br.com.persistencia.java.dao.ProjetoDAO;
+import br.com.persistencia.java.model.Projeto;
 import br.com.persistencia.java.util.Util;
 
 import javax.persistence.EntityManager;
 import java.util.List;
 
-public class FuncionarioService implements FuncionarioDAO{
+public class ProjetoService implements ProjetoDAO {
 
 
     @Override
-    public void save(Funcionario funcionario){
-//        entityManagerFactory = Persistence.createEntityManagerFactory("hibernatejpa");
-//        EntityManager em = entityManagerFactory.createEntityManager();
-
+    public void save(Projeto projeto){
         Util.getEntityManager();
-
         try {
             beginTransaction();
-            Util.getEntityManager().persist(funcionario);
+            Util.getEntityManager().persist(projeto);
             commit();
         }catch (Exception e){
             rollback();
-
             System.out.println("INSERT " + e.getMessage());
         }finally {
 
@@ -32,34 +27,31 @@ public class FuncionarioService implements FuncionarioDAO{
     }
 
     @Override
-    public void delete(Funcionario funcionario) {
+    public void delete(Projeto projeto) {
         Util.getEntityManager();
-
         try {
             beginTransaction();
-            Util.getEntityManager().remove(funcionario);
+            Util.getEntityManager().remove(projeto);
             commit();
         }catch (Exception e){
             rollback();
-
             System.out.println("REMOVE: " + e.getMessage());
         }finally {
-
             close();
         }
     }
 
     @Override
-    public void deleteById(long idFuncionarioDelete){
+    public void deleteById(long idProjetoDelete){
 
         EntityManager em = Util.getEntityManager();
-        Funcionario funcionarioDelete = null;
+        Projeto projetoDelete = null;
 
         try {
-            funcionarioDelete = em.find(Funcionario.class, idFuncionarioDelete);
+            projetoDelete = em.find(Projeto.class, idProjetoDelete);
 
             em.getTransaction().begin();
-            em.remove(funcionarioDelete);
+            em.remove(projetoDelete);
             em.getTransaction().commit();
         }catch (Exception e){
 
@@ -71,14 +63,14 @@ public class FuncionarioService implements FuncionarioDAO{
     }
 
     @Override
-    public Funcionario findById(long idFuncionario){
+    public Projeto findById(long idProjeto){
 
         EntityManager em = Util.getEntityManager();
-        Funcionario funcionario = null;
+        Projeto projeto = null;
 
         try {
 
-            funcionario = em.find(Funcionario.class, idFuncionario);
+            projeto = em.find(Projeto.class, idProjeto);
 
         }catch (Exception e){
 
@@ -87,30 +79,30 @@ public class FuncionarioService implements FuncionarioDAO{
         }finally {
             close();
         }
-        System.out.println(funcionario);
-        return funcionario;
+        System.out.println(projeto);
+        return projeto;
     }
 
     @Override
-    public List<Funcionario> findAll(){
+    public List<Projeto> findAll(){
         EntityManager em = Util.getEntityManager();
 
-        List <Funcionario> funcionarios = null;
+        List <Projeto> projetos = null;
 
-            try {
-                funcionarios = em.createQuery("from Funcionario ") .getResultList();
+        try {
+            projetos = em.createQuery("from Projeto ") .getResultList();
 
-            }catch (Exception e){
-                System.out.println("List ALL: " + e.getMessage());
-            }finally {
-                close();
-            }
+        }catch (Exception e){
+            System.out.println("List ALL: " + e.getMessage());
+        }finally {
+            close();
+        }
 
-            if(funcionarios != null){
-                funcionarios.forEach(System.out::println);
-            }else
-                System.out.println("Nenhum funcionario encontrado");
-        return funcionarios;
+        if(projetos != null){
+            projetos.forEach(System.out::println);
+        }else
+            System.out.println("Nenhum projeto encontrado");
+        return projetos;
     }
 
 

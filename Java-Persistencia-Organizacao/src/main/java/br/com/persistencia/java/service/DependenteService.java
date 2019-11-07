@@ -10,7 +10,7 @@ import java.util.List;
 public class DependenteService implements DependenteDAO{
 
 
-
+    @Override
     public void save(Dependente dependente){
         Util.getEntityManager();
         try {
@@ -41,6 +41,7 @@ public class DependenteService implements DependenteDAO{
         }
     }
 
+    @Override
     public void deleteById(long idDependenteDelete){
 
         EntityManager em = Util.getEntityManager();
@@ -61,6 +62,7 @@ public class DependenteService implements DependenteDAO{
         }
     }
 
+    @Override
     public Dependente findById(long idDependente){
 
         EntityManager em = Util.getEntityManager();
@@ -81,6 +83,7 @@ public class DependenteService implements DependenteDAO{
         return dependente;
     }
 
+    @Override
     public List<Dependente> findAll(){
         EntityManager em = Util.getEntityManager();
 

@@ -4,6 +4,7 @@ import br.com.persistencia.java.model.*;
 import br.com.persistencia.java.service.DepartamentoService;
 import br.com.persistencia.java.service.DependenteService;
 import br.com.persistencia.java.service.FuncionarioService;
+import br.com.persistencia.java.service.ProjetoService;
 
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.EntityManager;
@@ -20,6 +21,7 @@ public class Main {
         FuncionarioService funService = new FuncionarioService();
         DepartamentoService depService = new DepartamentoService();
         DependenteService dependenteService = new DependenteService();
+        ProjetoService projService = new ProjetoService();
 
         FuncionarioLimpeza funcionario1 = new FuncionarioLimpeza();
         FuncionarioLimpeza funcionario2 = new FuncionarioLimpeza();
@@ -110,6 +112,26 @@ public class Main {
 //        dependenteService.findById(0);
 //        dependenteService.findAll();
 //        dependenteService.deleteById(0);
+
+        /*  PROJETO */
+
+        Projeto projeto1 = new Projeto();
+
+        projeto1.setNomeProjeto("Projeto Piloto");
+        projeto1.setTempoDesenvolvimento(40.30f);
+
+        Projeto projeto2 = new Projeto();
+
+        projeto1.setNomeProjeto("Porjeto Alfa");
+        projeto1.setTempoDesenvolvimento(20f);
+
+
+//        projService.save(projeto1);
+//        projService.save(projeto2);
+//
+//        projService.findAll();
+//        projService.findById(0);
+//        projService.deleteById(0);
 
 
 
