@@ -9,15 +9,17 @@ import javax.persistence.Id;
 @Entity
 public class HorasTrabalhadas {
 
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+ 	@Column(name = "horasTrabalhadas_pk")
+	private long idHorasTrabalhadas;
 
-//	@Id
-//    @GeneratedValue(strategy = GenerationType.IDENTITY)
-//    @Column(name = "pesquisador_pk", columnDefinition = "2")
+	
+    @Column(name = "pesquisador_pk")
     private long idPesquisador;
 	
-	@Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(name = "projeto_pk", columnDefinition = "2")
+	
+	@Column(name = "projeto_pk")
     private long idProjeto;
 	
 
@@ -63,6 +65,14 @@ public class HorasTrabalhadas {
                 ", idProjeto=" + idProjeto +
                 ", qtdHoras=" + qtdHoras +
                 '}';
-    } 
+    }
+
+	public long getIdHorasTrabalhadas() {
+		return idHorasTrabalhadas;
+	}
+
+	public void setIdHorasTrabalhadas(long idHorasTrabalhadas) {
+		this.idHorasTrabalhadas = idHorasTrabalhadas;
+	} 
 
 }

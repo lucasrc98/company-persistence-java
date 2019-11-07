@@ -12,6 +12,10 @@ public class HorasTrabalhadasService implements HorasTrabalhadasDAO {
 
     @Override
     public void save(HorasTrabalhadas horasTrab){
+    	FuncionarioService funcionarioService = new FuncionarioService();
+    	ProjetoService projeto = new ProjetoService();
+    	if(funcionarioService.findById(horasTrab.getIdPesquisador()) != null && 
+    			projeto.findById(horasTrab.getIdProjeto()) != null) {
         Util.getEntityManager();
         try {
             beginTransaction();
@@ -24,7 +28,11 @@ public class HorasTrabalhadasService implements HorasTrabalhadasDAO {
 
             close();
         }
-    }
+     }
+    	else {
+    		System.out.println("ForeignKey Invalid");
+    	}
+  }
 
     @Override
     public void delete(HorasTrabalhadas horasTrab) {

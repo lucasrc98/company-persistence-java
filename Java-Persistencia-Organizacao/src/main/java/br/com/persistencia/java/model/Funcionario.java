@@ -12,7 +12,7 @@ import org.hibernate.annotations.ForeignKey;
 public abstract class Funcionario {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long idFuncionario;
 
     private String nomeFuncionario;

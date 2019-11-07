@@ -2,15 +2,12 @@ package br.com.persistencia.java.model;
 
 
 
-import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.OneToOne;
+
 
 @Entity
 public class Projeto { 
@@ -18,11 +15,7 @@ public class Projeto {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
  	@Column(name = "projeto_pk")
-    private long idProjeto;
-	
-	@OneToOne(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
-    @JoinColumn(name = "horasTrabalhadas_fk_projeto")
-    private HorasTrabalhadas horasTrabalhadas;
+    private long idProjeto;	
 
     private String nomeProjeto;
     private float tempoDesenvolvimento;
@@ -64,4 +57,5 @@ public class Projeto {
                 ", tempoDesenvolvimento=" + tempoDesenvolvimento +
                 '}';
     }
+
 }
