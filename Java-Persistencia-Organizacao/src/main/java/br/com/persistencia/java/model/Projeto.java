@@ -1,18 +1,27 @@
 package br.com.persistencia.java.model;
 
+
+
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToOne;
 
 @Entity
-public class Projeto {
+public class Projeto { 
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(name = "projeto_pk")
+ 	@Column(name = "projeto_pk")
     private long idProjeto;
+	
+	@OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "horasTrabalhadas_fk_projeto")
+    private HorasTrabalhadas horasTrabalhadas;
 
     private String nomeProjeto;
     private float tempoDesenvolvimento;

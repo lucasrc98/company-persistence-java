@@ -1,11 +1,18 @@
 package br.com.persistencia.java.model;
 
-import javax.persistence.Entity;
+import javax.persistence.CascadeType;
+import javax.persistence.Embeddable;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToOne;
 
-@Entity
+@Embeddable
 public class Pesquisador extends Funcionario {
 
     private String areaAtuacao;
+    
+//  @OneToOne(cascade = CascadeType.ALL)
+//  @JoinColumn(name = "horasTrabalhadas_fk_pedquisador")
+//  private HorasTrabalhadas horasTrabalhadas;
 
     public String getAreaAtuacao() {
         return areaAtuacao;

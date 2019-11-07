@@ -6,12 +6,13 @@ import java.util.List;
 import javax.persistence.*;
 
 import org.hibernate.annotations.Cascade;
+import org.hibernate.annotations.ForeignKey;
 
 @Entity
 public class Funcionario {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE)
     private long idFuncionario;
 
     private String nomeFuncionario;
@@ -20,12 +21,13 @@ public class Funcionario {
     private String dataAniversario;
     private double salarioFuncionario;
     
-    @OneToMany(mappedBy="idFuncionario", orphanRemoval = true)
+    @OneToMany(mappedBy="funcionario", orphanRemoval = true)
     @Cascade(org.hibernate.annotations.CascadeType.ALL)
     private List<Dependente> dependente = new ArrayList<Dependente>();
     
     @ManyToOne
-    @JoinColumn(name = "idDepartamento", nullable = false)
+	@JoinColumn(name="departamento_id", referencedColumnName = "idDepartamento", nullable = false)
+    @ForeignKey(name = "fk_departamento_id")
     private Departamento departamento;
 
     public long getIdFuncionario() {
@@ -79,13 +81,13 @@ public class Funcionario {
     public Funcionario() {
     }
     
-    public List<Dependente> getDependente() {
-		return dependente;
-	}
-
-	public void setDependente(List<Dependente> dependente) {
-		this.dependente = dependente;
-	}
+//    public List<Dependente> getDependente() {
+//		return dependente;
+//	}
+//
+//	public void setDependente(List<Dependente> dependente) {
+//		this.dependente = dependente;
+//	}
 
     @Override
     public String toString() {

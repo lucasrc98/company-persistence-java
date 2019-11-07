@@ -7,6 +7,8 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 
+import org.hibernate.annotations.ForeignKey;
+
 
 @Entity
 public class Dependente {
@@ -19,9 +21,10 @@ public class Dependente {
     private String sexoDependente;
     private String aniversarioDependente;
     private String parentescoDependente;
-    
-	@ManyToOne
-	@JoinColumn(name="idFuncionario", nullable = false)
+
+    @ManyToOne
+	@JoinColumn(name="funcionario_id", referencedColumnName = "idFuncionario", nullable = false)
+    @ForeignKey(name = "fk_funcionario")
     private Funcionario funcionario;
 
     public long getIdDependente() {

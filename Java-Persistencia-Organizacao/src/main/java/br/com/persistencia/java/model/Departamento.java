@@ -7,6 +7,7 @@ import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
@@ -17,14 +18,16 @@ import org.hibernate.annotations.Cascade;
 @Entity
 public class Departamento {
     
+
 	@Id
-    @OneToOne(cascade=CascadeType.ALL, fetch=FetchType.EAGER)
-    @JoinColumn(name = "idProjeto", nullable = false)	
+	@GeneratedValue(strategy = GenerationType.SEQUENCE)
     private long idDepartamento;
 
     private String nomeDepartamento;
     private int numeroDepartamento;
     
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "projeto_fk")
     private Projeto projeto;
     
     
@@ -35,12 +38,13 @@ public class Departamento {
 	public void setProjeto(Projeto projeto) {
 		this.projeto = projeto;
 	}
-    
-    @OneToMany(mappedBy="idDepartamento", orphanRemoval = true)
-    @Cascade(org.hibernate.annotations.CascadeType.ALL)
-    private List<Funcionario> funcionario = new ArrayList<Funcionario>();
 
-    @GeneratedValue
+	  
+     @OneToMany(mappedBy="departamento", orphanRemoval = true)
+     @Cascade(org.hibernate.annotations.CascadeType.ALL)
+     private List<Funcionario> funcionario = new ArrayList<Funcionario>();
+
+    
     public long getIdDepartamento() {
         return idDepartamento;
     }
