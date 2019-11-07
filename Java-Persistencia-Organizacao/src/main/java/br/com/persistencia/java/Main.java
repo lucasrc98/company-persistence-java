@@ -121,8 +121,8 @@ public class Main {
 
         Projeto projeto2 = new Projeto();
 
-        projeto1.setNomeProjeto("Porjeto Alfa");
-        projeto1.setTempoDesenvolvimento(20f);
+        projeto2.setNomeProjeto("Porjeto Alfa");
+        projeto2.setTempoDesenvolvimento(20f);
 
 
 //        projService.save(projeto1);
@@ -135,8 +135,12 @@ public class Main {
 
         /*  HorasTrabalhadas    */
 
-        HorasTrabalhadas horasTrabalhadas1 = new HorasTrabalhadas();
+        HorasTrabalhadas horasTrabalhadas1 = new HorasTrabalhadas(7, 0, 20);
 
+//        horasTrabService.save(horasTrabalhadas1);
+//        horasTrabService.findAll();
+//        horasTrabService.findById();
+//        horasTrabService.deleteById();
 
 
     }
