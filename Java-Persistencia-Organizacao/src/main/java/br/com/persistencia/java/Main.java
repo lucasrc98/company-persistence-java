@@ -1,10 +1,7 @@
 package br.com.persistencia.java;
 
 import br.com.persistencia.java.model.*;
-import br.com.persistencia.java.service.DepartamentoService;
-import br.com.persistencia.java.service.DependenteService;
-import br.com.persistencia.java.service.FuncionarioService;
-import br.com.persistencia.java.service.ProjetoService;
+import br.com.persistencia.java.service.*;
 
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.EntityManager;
@@ -22,6 +19,8 @@ public class Main {
         DepartamentoService depService = new DepartamentoService();
         DependenteService dependenteService = new DependenteService();
         ProjetoService projService = new ProjetoService();
+        HorasTrabalhadasService horasTrabService = new HorasTrabalhadasService();
+
 
         FuncionarioLimpeza funcionario1 = new FuncionarioLimpeza();
         FuncionarioLimpeza funcionario2 = new FuncionarioLimpeza();
@@ -127,12 +126,16 @@ public class Main {
 
 
 //        projService.save(projeto1);
-//        projService.save(projeto2);
+        projService.save(projeto2);
 //
 //        projService.findAll();
 //        projService.findById(0);
 //        projService.deleteById(0);
 
+
+        /*  HorasTrabalhadas    */
+
+        HorasTrabalhadas horasTrabalhadas1 = new HorasTrabalhadas();
 
 
 
