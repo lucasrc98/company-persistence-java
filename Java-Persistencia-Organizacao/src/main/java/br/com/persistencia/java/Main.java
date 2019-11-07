@@ -1,8 +1,10 @@
 package br.com.persistencia.java;
 
+import br.com.persistencia.java.model.Departamento;
 import br.com.persistencia.java.model.FuncionarioLimpeza;
 import br.com.persistencia.java.model.Funcionario;
 import br.com.persistencia.java.model.Pesquisador;
+import br.com.persistencia.java.service.DepartamentoService;
 import br.com.persistencia.java.service.FuncionarioService;
 
 import javax.persistence.EntityManagerFactory;
@@ -18,6 +20,7 @@ public class Main {
     public static void main(String args[]) {
 
         FuncionarioService funService = new FuncionarioService();
+        DepartamentoService depService = new DepartamentoService();
 
         FuncionarioLimpeza funcionario1 = new FuncionarioLimpeza();
         FuncionarioLimpeza funcionario2 = new FuncionarioLimpeza();
@@ -63,8 +66,36 @@ public class Main {
 //      funService.save(funcionario3);
 //      funService.save(funcionario4);
 
+//      funService.findById();
 //      funService.deleteById();
-        funService.findAll();
+//      funService.findAll();
+
+
+        /*  DEPARTAMENTOS   */
+
+        Departamento departamento1 = new Departamento();
+        Departamento departamento2 = new Departamento();
+
+        departamento1.setNomeDepartamento("Departamento1");
+        departamento1.setNumeroDepartamento(001);
+
+        departamento2.setNomeDepartamento("Departamento gg");
+        departamento2.setNumeroDepartamento(002);
+
+//        depService.save(departamento1);
+//        depService.save(departamento2);
+//
+//
+//        depService.findAll();
+//        depService.findById();
+//        depService.deleteById();
+
+
+        /*  DEPENDENTES */
+
+
+
+
 
     }
 
