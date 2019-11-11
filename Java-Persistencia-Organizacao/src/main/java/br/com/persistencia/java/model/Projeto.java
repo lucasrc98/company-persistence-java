@@ -2,12 +2,8 @@ package br.com.persistencia.java.model;
 
 
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.ManyToOne;
+import javax.persistence.*;
+import java.util.List;
 
 
 @Entity
@@ -15,16 +11,17 @@ public class Projeto {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
- 	@Column(name = "projeto_pk")
     private long idProjeto;	
 
     private String nomeProjeto;
     private float tempoDesenvolvimento;
     
     @ManyToOne
+    @JoinColumn(name = "idDepartamento")
     private Departamento departamento;
-     
-    
+
+    @OneToMany(mappedBy = "projeto")
+    private  List<Pesquisa> pesquisas;
     
    
     public Departamento getDepartamento() {
@@ -57,6 +54,14 @@ public class Projeto {
 
     public void setTempoDesenvolvimento(float tempoDesenvolvimento) {
         this.tempoDesenvolvimento = tempoDesenvolvimento;
+    }
+
+    public List<Pesquisa> getPesquisas() {
+        return pesquisas;
+    }
+
+    public void setPesquisas(List<Pesquisa> pesquisas) {
+        this.pesquisas = pesquisas;
     }
 
     public Projeto() {

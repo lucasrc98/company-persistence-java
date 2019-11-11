@@ -1,7 +1,9 @@
 package br.com.persistencia.java.model;
 
 import javax.persistence.Entity;
+import javax.persistence.OneToMany;
 import javax.persistence.PrimaryKeyJoinColumn;
+import java.util.List;
 
 
 @Entity
@@ -9,7 +11,9 @@ import javax.persistence.PrimaryKeyJoinColumn;
 public class Pesquisador extends Funcionario {
 
     private String areaAtuacao;
-    
+
+    @OneToMany(mappedBy = "pesquisador")
+    private List<Pesquisa> pesquisas;
 
     public String getAreaAtuacao() {
         return areaAtuacao;
@@ -17,6 +21,14 @@ public class Pesquisador extends Funcionario {
 
     public void setAreaAtuacao(String areaAtuacao) {
         this.areaAtuacao = areaAtuacao;
+    }
+
+    public List<Pesquisa> getPesquisas() {
+        return pesquisas;
+    }
+
+    public void setPesquisas(List<Pesquisa> pesquisas) {
+        this.pesquisas = pesquisas;
     }
 
     public Pesquisador() {

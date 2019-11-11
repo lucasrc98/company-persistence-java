@@ -19,7 +19,6 @@ public class Main {
         DepartamentoService depService = new DepartamentoService();
         DependenteService dependenteService = new DependenteService();
         ProjetoService projService = new ProjetoService();
-        HorasTrabalhadasService horasTrabService = new HorasTrabalhadasService();
 
 
         /*  DEPARTAMENTOS   */
@@ -144,10 +143,10 @@ public class Main {
 
         /*  HorasTrabalhadas    */
 
-        HorasTrabalhadas horasTrabalhadas1 = new HorasTrabalhadas();
-        horasTrabalhadas1.setQtdHoras(20);
-
-        horasTrabService.save(3,1, horasTrabalhadas1);
+//        HorasTrabalhadas horasTrabalhadas1 = new HorasTrabalhadas();
+//        horasTrabalhadas1.setQtdHoras(20);
+//
+//        horasTrabService.save(3,1, horasTrabalhadas1);
 //        horasTrabService.findAll();
 //        horasTrabService.findById();
 //        horasTrabService.deleteById();
