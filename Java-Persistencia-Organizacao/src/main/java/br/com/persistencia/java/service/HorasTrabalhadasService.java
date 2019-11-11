@@ -2,6 +2,7 @@ package br.com.persistencia.java.service;
 
 import br.com.persistencia.java.dao.HorasTrabalhadasDAO;
 import br.com.persistencia.java.model.HorasTrabalhadas;
+import br.com.persistencia.java.model.Pesquisador;
 import br.com.persistencia.java.util.Util;
 
 import javax.persistence.EntityManager;
@@ -11,11 +12,13 @@ public class HorasTrabalhadasService implements HorasTrabalhadasDAO {
 
 
     @Override
-    public void save(HorasTrabalhadas horasTrab){
-    	FuncionarioService funcionarioService = new FuncionarioService();
+    public void save(long idPesquisador, long idProjeto, HorasTrabalhadas horasTrab){
+    	FuncionarioService funcionario = new FuncionarioService();
     	ProjetoService projeto = new ProjetoService();
-    	if(funcionarioService.findById(horasTrab.getIdPesquisador()) != null && 
-    			projeto.findById(horasTrab.getIdProjeto()) != null) {
+
+        horasTrab.setPesquisador((Pesquisador) funcionario.findById(idPesquisador));
+        horasTrab.setProjeto(
+                projeto.findById(idProjeto));
         Util.getEntityManager();
         try {
             beginTransaction();
@@ -28,10 +31,6 @@ public class HorasTrabalhadasService implements HorasTrabalhadasDAO {
 
             close();
         }
-     }
-    	else {
-    		System.out.println("ForeignKey Invalid");
-    	}
   }
 
     @Override

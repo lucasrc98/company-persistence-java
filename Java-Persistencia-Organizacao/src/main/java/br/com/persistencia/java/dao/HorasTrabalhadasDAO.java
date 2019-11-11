@@ -6,7 +6,7 @@ import java.util.List;
 
 public interface HorasTrabalhadasDAO {
     
-    public void save(HorasTrabalhadas horasTrab);
+    public void save(long idPesquisador, long idProjeto, HorasTrabalhadas horasTrab);
     public void delete(HorasTrabalhadas horasTrab);
     public void deleteById(long id);
     public HorasTrabalhadas findById(long id);

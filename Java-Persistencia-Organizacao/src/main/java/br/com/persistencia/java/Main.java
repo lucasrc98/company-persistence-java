@@ -37,7 +37,7 @@ public class Main {
 //        depService.save(departamento2);
 //
 //
-        depService.findAll();
+//        depService.findAll();
 //        depService.findById();
 //        depService.deleteById();
 
@@ -94,7 +94,7 @@ public class Main {
 
 //      funService.findById();
 //      funService.deleteById();
-//      funService.findAll();
+        funService.findAll();
 
 
 
@@ -134,8 +134,8 @@ public class Main {
         projeto2.setTempoDesenvolvimento(20f);
 
 
-        projService.save(projeto1, 1);
-        projService.save(projeto2, 1);
+//        projService.save(projeto1, 1);
+//        projService.save(projeto2, 1);
 //
         projService.findAll();
 //        projService.findById(0);
@@ -144,9 +144,10 @@ public class Main {
 
         /*  HorasTrabalhadas    */
 
-//        HorasTrabalhadas horasTrabalhadas1 = new HorasTrabalhadas(7, 0, 20);
+        HorasTrabalhadas horasTrabalhadas1 = new HorasTrabalhadas();
+        horasTrabalhadas1.setQtdHoras(20);
 
-//        horasTrabService.save(horasTrabalhadas1);
+        horasTrabService.save(3,1, horasTrabalhadas1);
 //        horasTrabService.findAll();
 //        horasTrabService.findById();
 //        horasTrabService.deleteById();
