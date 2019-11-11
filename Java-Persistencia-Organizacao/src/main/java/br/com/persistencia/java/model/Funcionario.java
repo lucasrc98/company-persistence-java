@@ -9,6 +9,7 @@ import org.hibernate.annotations.Cascade;
 import org.hibernate.annotations.ForeignKey;
 
 @Entity
+@Inheritance(strategy = InheritanceType.JOINED)
 public abstract class Funcionario {
 
     @Id
@@ -26,7 +27,7 @@ public abstract class Funcionario {
     private List<Dependente> dependente = new ArrayList<Dependente>();
     
     @ManyToOne
-	@JoinColumn(name="departamento_id", referencedColumnName = "idDepartamento", nullable = false)
+//	@JoinColumn(name="departamento_id", referencedColumnName = "idDepartamento", nullable = false)
     @ForeignKey(name = "fk_departamento_id")
     private Departamento departamento;
 

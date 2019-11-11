@@ -22,6 +22,32 @@ public class Main {
         HorasTrabalhadasService horasTrabService = new HorasTrabalhadasService();
 
 
+        /*  DEPARTAMENTOS   */
+
+        Departamento departamento1 = new Departamento();
+        Departamento departamento2 = new Departamento();
+
+        departamento1.setNomeDepartamento("Departamento1");
+        departamento1.setNumeroDepartamento(001);
+
+        departamento2.setNomeDepartamento("Departamento gg");
+        departamento2.setNumeroDepartamento(002);
+
+//        depService.save(departamento1);
+//        depService.save(departamento2);
+//
+//
+        depService.findAll();
+//        depService.findById();
+//        depService.deleteById();
+
+
+
+
+
+        /*  FUNCIONARIOS    */
+
+
         FuncionarioLimpeza funcionario1 = new FuncionarioLimpeza();
         FuncionarioLimpeza funcionario2 = new FuncionarioLimpeza();
         Pesquisador funcionario3 = new Pesquisador();
@@ -63,32 +89,13 @@ public class Main {
 
 //      funService.save(funcionario1, 1);
 //      funService.save(funcionario2, 1);
- //     funService.save(funcionario3, 1);
+//      funService.save(funcionario3, 1);
 //      funService.save(funcionario4);
 
 //      funService.findById();
 //      funService.deleteById();
 //      funService.findAll();
 
-
-        /*  DEPARTAMENTOS   */
-
-        Departamento departamento1 = new Departamento();
-        Departamento departamento2 = new Departamento();
-
-        departamento1.setNomeDepartamento("Departamento1");
-        departamento1.setNumeroDepartamento(001);
-
-        departamento2.setNomeDepartamento("Departamento gg");
-        departamento2.setNumeroDepartamento(002);
-
-  //      depService.save(departamento1);
-//        depService.save(departamento2);
-//
-//
-        depService.findAll();
-//        depService.findById();
-//        depService.deleteById();
 
 
         /*  DEPENDENTES */
@@ -106,7 +113,7 @@ public class Main {
         dependente2.setSexoDependente("Feminino");
         dependente2.setAniversarioDependente("7/08/2004");
 
-//        dependenteService.save(dependente1);
+//        dependenteService.save(dependente1, 1);
 //        dependenteService.save(dependente2);
 //        dependenteService.findById(0);
 //        dependenteService.findAll();
@@ -119,7 +126,7 @@ public class Main {
         projeto1.setNomeProjeto("Projeto Piloto");
         projeto1.setTempoDesenvolvimento(40.30f);
         projeto1.setDepartamento(departamento1);
-        
+
 
         Projeto projeto2 = new Projeto();
 
@@ -127,8 +134,8 @@ public class Main {
         projeto2.setTempoDesenvolvimento(20f);
 
 
- //       projService.save(projeto1);
-//        projService.save(projeto2);
+        projService.save(projeto1, 1);
+        projService.save(projeto2, 1);
 //
         projService.findAll();
 //        projService.findById(0);
@@ -137,7 +144,7 @@ public class Main {
 
         /*  HorasTrabalhadas    */
 
-        HorasTrabalhadas horasTrabalhadas1 = new HorasTrabalhadas(7, 0, 20);
+//        HorasTrabalhadas horasTrabalhadas1 = new HorasTrabalhadas(7, 0, 20);
 
 //        horasTrabService.save(horasTrabalhadas1);
 //        horasTrabService.findAll();

@@ -11,8 +11,10 @@ public class ProjetoService implements ProjetoDAO {
 
 
     @Override
-    public void save(Projeto projeto){
+    public void save(Projeto projeto, long idDepartamento){
         Util.getEntityManager();
+        DepartamentoService departamentoService = new DepartamentoService();
+        projeto.setDepartamento(departamentoService.findById(idDepartamento));
         try {
             beginTransaction();
             Util.getEntityManager().persist(projeto);

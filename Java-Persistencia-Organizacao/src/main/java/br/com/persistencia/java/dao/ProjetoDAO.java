@@ -6,7 +6,7 @@ import java.util.List;
 
 public interface ProjetoDAO {
     
-    public void save(Projeto projeto);
+    public void save(Projeto projeto, long idDepartamento);
     public void delete(Projeto projeto);
     public void deleteById(long id);
     public Projeto findById(long id);
