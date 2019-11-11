@@ -58,8 +58,7 @@ public class Pesquisa {
     public Pesquisa() {
     }
 
-    public Pesquisa(long idPesquisa, Projeto projeto, Pesquisador pesquisador, double horasTrabalhadas) {
-        this.idPesquisa = idPesquisa;
+    public Pesquisa(Projeto projeto, Pesquisador pesquisador, double horasTrabalhadas) {
         this.projeto = projeto;
         this.pesquisador = pesquisador;
         this.horasTrabalhadas = horasTrabalhadas;

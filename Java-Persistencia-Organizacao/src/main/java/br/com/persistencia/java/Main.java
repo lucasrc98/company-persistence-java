@@ -19,6 +19,7 @@ public class Main {
         DepartamentoService depService = new DepartamentoService();
         DependenteService dependenteService = new DependenteService();
         ProjetoService projService = new ProjetoService();
+        PesquisaService pesquisaService = new PesquisaService();
 
 
         /*  DEPARTAMENTOS   */
@@ -32,13 +33,13 @@ public class Main {
         departamento2.setNomeDepartamento("Departamento gg");
         departamento2.setNumeroDepartamento(002);
 
-//        depService.save(departamento1);
-//        depService.save(departamento2);
+//      depService.save(departamento1);
+//      depService.save(departamento2);
 //
 //
-//        depService.findAll();
-//        depService.findById();
-//        depService.deleteById();
+//      depService.findAll();
+//      depService.findById();
+//      depService.deleteById();
 
 
 
@@ -87,13 +88,13 @@ public class Main {
 
 
 //      funService.save(funcionario1, 1);
-//      funService.save(funcionario2, 1);
-//      funService.save(funcionario3, 1);
+//    funService.save(funcionario2, 1);
+        funService.save(funcionario3, 1);
 //      funService.save(funcionario4);
 
 //      funService.findById();
 //      funService.deleteById();
-        funService.findAll();
+//       funService.findAll();
 
 
 
@@ -113,7 +114,7 @@ public class Main {
         dependente2.setAniversarioDependente("7/08/2004");
 
 //        dependenteService.save(dependente1, 1);
-//        dependenteService.save(dependente2);
+//        dependenteService.save(dependente2, 2);
 //        dependenteService.findById(0);
 //        dependenteService.findAll();
 //        dependenteService.deleteById(0);
@@ -134,11 +135,21 @@ public class Main {
 
 
 //        projService.save(projeto1, 1);
-//        projService.save(projeto2, 1);
+        //      projService.save(projeto2, 1);
 //
-        projService.findAll();
+        //       projService.findAll();
 //        projService.findById(0);
 //        projService.deleteById(0);
+
+
+
+        /*  Pesquisas   */
+
+        Pesquisa pesquisa1 = new Pesquisa();
+        pesquisa1.setHorasTrabalhadas(20);
+
+        pesquisaService.save(pesquisa1, 1,3);
+
 
 
         /*  HorasTrabalhadas    */
