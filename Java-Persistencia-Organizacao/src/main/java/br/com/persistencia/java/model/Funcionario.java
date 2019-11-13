@@ -28,7 +28,6 @@ public abstract class Funcionario {
     
     @ManyToOne
 //	@JoinColumn(name="departamento_id", referencedColumnName = "idDepartamento", nullable = false)
-    @ForeignKey(name = "fk_departamento_id")
     private Departamento departamento;
 
     public long getIdFuncionario() {

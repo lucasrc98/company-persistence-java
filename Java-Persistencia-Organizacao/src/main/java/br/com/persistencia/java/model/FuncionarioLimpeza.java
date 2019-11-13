@@ -5,6 +5,7 @@ import javax.persistence.OneToOne;
 import javax.persistence.PrimaryKeyJoinColumn;
 
 @Entity
+@PrimaryKeyJoinColumn(name = "idFunLimpeza")
 public class FuncionarioLimpeza extends Funcionario {
 
     private String cargo;

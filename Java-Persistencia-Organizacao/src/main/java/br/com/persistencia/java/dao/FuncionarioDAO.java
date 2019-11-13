@@ -6,7 +6,7 @@ import java.util.List;
 
 public interface FuncionarioDAO {
 
-    public void save(Funcionario funcionario, int idDepartamento);
+    public void save(Funcionario funcionario, long idDepartamento);
     public void delete(Funcionario funcionario);
     public void deleteById(long id);
     public Funcionario findById(long id);

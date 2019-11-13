@@ -11,7 +11,7 @@ public class FuncionarioService implements FuncionarioDAO{
 
 
     @Override
-    public void save(Funcionario funcionario, int idDepartamento){
+    public void save(Funcionario funcionario, long idDepartamento){
 //        entityManagerFactory = Persistence.createEntityManagerFactory("hibernatejpa");
 //        EntityManager em = entityManagerFactory.createEntityManager();
     	DepartamentoService departamentoService = new DepartamentoService();

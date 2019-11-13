@@ -22,6 +22,7 @@ public class Main {
         PesquisaService pesquisaService = new PesquisaService();
 
         FunLimpezaService funLimpezaService = new FunLimpezaService();
+        SecretarioService secretarioService = new SecretarioService();
 
 
         /*  DEPARTAMENTOS   */
@@ -30,17 +31,17 @@ public class Main {
         Departamento departamento2 = new Departamento();
 
         departamento1.setNomeDepartamento("Departamento1");
-        departamento1.setNumeroDepartamento(001);
+        departamento1.setNumeroDepartamento(100);
 
         departamento2.setNomeDepartamento("Departamento gg");
-        departamento2.setNumeroDepartamento(002);
+        departamento2.setNumeroDepartamento(200);
 
 //      depService.save(departamento1);
 //      depService.save(departamento2);
 //
 //
 //      depService.findAll();
-//      depService.findById();
+//      depService.findById(2);
 //      depService.deleteById();
 
 
@@ -54,6 +55,7 @@ public class Main {
         FuncionarioLimpeza funcionario2 = new FuncionarioLimpeza();
         Pesquisador funcionario3 = new Pesquisador();
         Pesquisador funcionario4 = new Pesquisador();
+        Secretario secretario1 = new Secretario();
 
         funcionario1.setNomeFuncionario("Abel");
         funcionario1.setEnderecoFuncionario("Basilio Pinto");
@@ -87,14 +89,23 @@ public class Main {
         funcionario4.setAreaAtuacao("Banco de Dados");
 
 
+        secretario1.setNomeFuncionario("Pedro");
+        secretario1.setEnderecoFuncionario("Basilio Pinto");
+        secretario1.setSexoFuncionario("Masculino");
+        secretario1.setDataAniversario("10/10/2000");
+        secretario1.setSalarioFuncionario(1900);
+        secretario1.setGrauEscolaridade("Ensino medio completo");
+
+        secretarioService.save(secretario1, 1);
+
+
 //        funLimpezaService.save(funcionario1, 1,0);
- //       funLimpezaService.save(funcionario2, 1,0);
+//       funLimpezaService.save(funcionario2, 1,0);
 //        funService.save(funcionario3, 1);
 //      funService.save(funcionario4);
-
-      funLimpezaService.findById(0);
+//     funLimpezaService.findById(0);
 //      funService.deleteById();
-       funLimpezaService.findAll();
+//       funLimpezaService.findAll();
 
 
 
@@ -134,12 +145,12 @@ public class Main {
         projeto2.setTempoDesenvolvimento(20f);
 
 
-//        projService.save(projeto1, 1);
-        //      projService.save(projeto2, 1);
+//      projService.save(projeto1, 1);
+//      projService.save(projeto2, 1);
 //
-        //       projService.findAll();
-//        projService.findById(0);
-//        projService.deleteById(0);
+//       projService.findAll();
+//       projService.findById(0);
+//       projService.deleteById(0);
 
 
 
