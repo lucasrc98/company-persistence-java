@@ -3,14 +3,7 @@ package br.com.persistencia.java.model;
 import java.util.ArrayList;
 import java.util.List;
 
-import javax.persistence.CascadeType;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.OneToMany;
-import javax.persistence.OneToOne;
+import javax.persistence.*;
 
 import org.hibernate.annotations.Cascade;
 
@@ -25,13 +18,13 @@ public class Departamento {
     private String nomeDepartamento;
     private int numeroDepartamento;
     
-    @OneToMany(mappedBy="departamento", orphanRemoval = true)
+    @OneToMany(mappedBy="departamento", orphanRemoval = true, fetch = FetchType.LAZY)
     @Cascade(org.hibernate.annotations.CascadeType.ALL)
     private List<Projeto> projeto = new ArrayList<Projeto>();
 	
 	
 	  
-     @OneToMany(mappedBy="departamento", orphanRemoval = true)
+     @OneToMany(mappedBy="departamento", orphanRemoval = true, fetch = FetchType.LAZY)
      @Cascade(org.hibernate.annotations.CascadeType.ALL)
      private List<Funcionario> funcionario = new ArrayList<Funcionario>();
 
@@ -71,7 +64,15 @@ public class Departamento {
 		this.funcionario = funcionario;
 	}
 
-	@Override
+    public List<Projeto> getProjeto() {
+        return projeto;
+    }
+
+    public void setProjeto(List<Projeto> projeto) {
+        this.projeto = projeto;
+    }
+
+    @Override
     public String toString() {
         return "Departamento{" +
                 "idDepartamento=" + idDepartamento +

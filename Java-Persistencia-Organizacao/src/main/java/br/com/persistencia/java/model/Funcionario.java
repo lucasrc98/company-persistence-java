@@ -9,11 +9,11 @@ import org.hibernate.annotations.Cascade;
 import org.hibernate.annotations.ForeignKey;
 
 @Entity
-@Inheritance(strategy = InheritanceType.JOINED)
+@Inheritance(strategy = InheritanceType.SINGLE_TABLE)
 public abstract class Funcionario {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private long idFuncionario;
 
     private String nomeFuncionario;
@@ -22,7 +22,7 @@ public abstract class Funcionario {
     private String dataAniversario;
     private double salarioFuncionario;
     
-    @OneToMany(mappedBy="funcionario", orphanRemoval = true)
+    @OneToMany(mappedBy="funcionario", orphanRemoval = true, fetch = FetchType.LAZY)
     @Cascade(org.hibernate.annotations.CascadeType.ALL)
     private List<Dependente> dependente = new ArrayList<Dependente>();
     

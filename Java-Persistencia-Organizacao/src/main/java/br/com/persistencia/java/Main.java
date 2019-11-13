@@ -15,7 +15,7 @@ public class Main {
 
     public static void main(String args[]) {
 
-//        FuncionarioService funService = new FuncionarioService();
+        FuncionarioService funService = new FuncionarioService();
         DepartamentoService depService = new DepartamentoService();
         DependenteService dependenteService = new DependenteService();
         ProjetoService projService = new ProjetoService();
@@ -36,13 +36,36 @@ public class Main {
         departamento2.setNomeDepartamento("Departamento gg");
         departamento2.setNumeroDepartamento(200);
 
-//      depService.save(departamento1);
-//      depService.save(departamento2);
+      depService.save(departamento1);
+      depService.save(departamento2);
 //
 //
-//      depService.findAll();
+  //    depService.findAll();
 //      depService.findById(2);
 //      depService.deleteById();
+
+
+        /*  PROJETO */
+
+        Projeto projeto1 = new Projeto();
+
+        projeto1.setNomeProjeto("Projeto Piloto");
+        projeto1.setTempoDesenvolvimento(40.30f);
+
+
+        Projeto projeto2 = new Projeto();
+
+        projeto2.setNomeProjeto("Porjeto Alfa");
+        projeto2.setTempoDesenvolvimento(20f);
+
+
+      projService.save(projeto1, 1);
+      projService.save(projeto2, 1);
+//
+       projService.findAll();
+//       projService.findById(1);
+//       projService.deleteById(0);
+
 
 
 
@@ -96,7 +119,7 @@ public class Main {
         secretario1.setSalarioFuncionario(1900);
         secretario1.setGrauEscolaridade("Ensino medio completo");
 
-        secretarioService.save(secretario1, 1);
+        funService.save(secretario1, 1);
 
 
 //        funLimpezaService.save(funcionario1, 1,0);
@@ -129,29 +152,6 @@ public class Main {
 //        dependenteService.findById(0);
 //        dependenteService.findAll();
 //        dependenteService.deleteById(0);
-
-        /*  PROJETO */
-
-        Projeto projeto1 = new Projeto();
-
-        projeto1.setNomeProjeto("Projeto Piloto");
-        projeto1.setTempoDesenvolvimento(40.30f);
-        projeto1.setDepartamento(departamento1);
-
-
-        Projeto projeto2 = new Projeto();
-
-        projeto2.setNomeProjeto("Porjeto Alfa");
-        projeto2.setTempoDesenvolvimento(20f);
-
-
-//      projService.save(projeto1, 1);
-//      projService.save(projeto2, 1);
-//
-//       projService.findAll();
-//       projService.findById(0);
-//       projService.deleteById(0);
-
 
 
         /*  Pesquisas   */

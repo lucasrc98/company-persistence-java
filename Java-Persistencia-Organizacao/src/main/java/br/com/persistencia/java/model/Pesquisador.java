@@ -1,18 +1,18 @@
 package br.com.persistencia.java.model;
 
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.OneToMany;
 import javax.persistence.PrimaryKeyJoinColumn;
 import java.util.List;
 
 
 @Entity
-@PrimaryKeyJoinColumn(name = "idPesquisador")
 public class Pesquisador extends Funcionario {
 
     private String areaAtuacao;
 
-    @OneToMany(mappedBy = "pesquisador")
+    @OneToMany(mappedBy = "pesquisador", fetch = FetchType.LAZY)
     private List<Pesquisa> pesquisas;
 
     public String getAreaAtuacao() {

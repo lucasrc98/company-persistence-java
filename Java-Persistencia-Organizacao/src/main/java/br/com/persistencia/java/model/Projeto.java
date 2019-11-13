@@ -20,7 +20,8 @@ public class Projeto {
     @JoinColumn(name = "idDepartamento")
     private Departamento departamento;
 
-    @OneToMany(mappedBy = "projeto")
+
+    @OneToMany(mappedBy = "projeto", fetch = FetchType.LAZY)
     private  List<Pesquisa> pesquisas;
     
    

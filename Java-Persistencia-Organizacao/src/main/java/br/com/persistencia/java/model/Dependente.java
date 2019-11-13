@@ -24,7 +24,6 @@ public class Dependente {
 
     @ManyToOne
 	@JoinColumn(name="funcionario_id", referencedColumnName = "idFuncionario", nullable = false)
-    @ForeignKey(name = "fk_funcionario")
     private Funcionario funcionario;
 
     public long getIdDependente() {
