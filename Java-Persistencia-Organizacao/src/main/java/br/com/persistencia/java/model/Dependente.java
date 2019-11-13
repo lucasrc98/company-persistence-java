@@ -23,7 +23,7 @@ public class Dependente {
     private String parentescoDependente;
 
     @ManyToOne
-	@JoinColumn(name="funcionario_id", referencedColumnName = "idFuncionario", nullable = false)
+    @JoinColumn(name = "idFuncionario")
     private Funcionario funcionario;
 
     public long getIdDependente() {

@@ -16,14 +16,13 @@ public class PesquisaService implements PesquisaDAO {
         ProjetoService projeto = new ProjetoService();
         FuncionarioService pesquisador = new FuncionarioService();
 
+        pesquisa.setProjeto(projeto.findById(idProjeto));
+        pesquisa.setPesquisador((Pesquisador) pesquisador.findById(idPesquisador));
+
         Util.getEntityManager();
 
         try {
             beginTransaction();
-
-            pesquisa.setProjeto(projeto.findById(idProjeto));
-            pesquisa.setPesquisador((Pesquisador) pesquisador.findById(idPesquisador));
-
             Util.getEntityManager().persist(pesquisa);
             commit();
         }catch (Exception e){

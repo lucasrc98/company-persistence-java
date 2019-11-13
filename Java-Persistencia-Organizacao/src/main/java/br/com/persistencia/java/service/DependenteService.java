@@ -11,7 +11,7 @@ public class DependenteService implements DependenteDAO{
 
 
     @Override
-    public void save(Dependente dependente, int idFuncionario){
+    public void save(Dependente dependente, long idFuncionario){
     	FuncionarioService funcionarioService = new FuncionarioService();
     	dependente.setFuncionario(funcionarioService.findById(idFuncionario));
         Util.getEntityManager();

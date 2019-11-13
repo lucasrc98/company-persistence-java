@@ -12,14 +12,12 @@ public class FuncionarioService implements FuncionarioDAO{
 
     @Override
     public void save(Funcionario funcionario, long idDepartamento){
-//        entityManagerFactory = Persistence.createEntityManagerFactory("hibernatejpa");
-//        EntityManager em = entityManagerFactory.createEntityManager();
-    	DepartamentoService departamentoService = new DepartamentoService();
         Util.getEntityManager();
+        DepartamentoService departamentoService = new DepartamentoService();
+        funcionario.setDepartamento(departamentoService.findById(idDepartamento));
 
         try {
             beginTransaction();
-            funcionario.setDepartamento(departamentoService.findById(idDepartamento));
             Util.getEntityManager().persist(funcionario);
             commit();
         }catch (Exception e){
@@ -98,19 +96,19 @@ public class FuncionarioService implements FuncionarioDAO{
 
         List <Funcionario> funcionarios = null;
 
-            try {
-                funcionarios = em.createQuery("from Funcionario ") .getResultList();
+        try {
+            funcionarios = em.createQuery("from Funcionario ") .getResultList();
 
-            }catch (Exception e){
-                System.out.println("List ALL: " + e.getMessage());
-            }finally {
-                close();
-            }
+        }catch (Exception e){
+            System.out.println("List ALL: " + e.getMessage());
+        }finally {
+            close();
+        }
 
-            if(funcionarios != null){
-                funcionarios.forEach(System.out::println);
-            }else
-                System.out.println("Nenhum funcionario encontrado");
+        if(funcionarios != null){
+            funcionarios.forEach(System.out::println);
+        }else
+            System.out.println("Nenhum funcionario encontrado");
         return funcionarios;
     }
 
