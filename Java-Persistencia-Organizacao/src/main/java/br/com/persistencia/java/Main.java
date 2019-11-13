@@ -15,11 +15,13 @@ public class Main {
 
     public static void main(String args[]) {
 
-        FuncionarioService funService = new FuncionarioService();
+//        FuncionarioService funService = new FuncionarioService();
         DepartamentoService depService = new DepartamentoService();
         DependenteService dependenteService = new DependenteService();
         ProjetoService projService = new ProjetoService();
         PesquisaService pesquisaService = new PesquisaService();
+
+        FunLimpezaService funLimpezaService = new FunLimpezaService();
 
 
         /*  DEPARTAMENTOS   */
@@ -58,7 +60,6 @@ public class Main {
         funcionario1.setSexoFuncionario("Masculino");
         funcionario1.setDataAniversario("01/01/1995");
         funcionario1.setSalarioFuncionario(20000);
-        funcionario1.setIdResponsavel(0);
         funcionario1.setCargo("Chefe Da Limpeza");
         funcionario1.setJornadaTrabalho("30h");
 
@@ -68,7 +69,6 @@ public class Main {
         funcionario2.setSexoFuncionario("Masculino");
         funcionario2.setDataAniversario("10/10/2000");
         funcionario2.setSalarioFuncionario(1900);
-        funcionario2.setIdResponsavel(1);
         funcionario2.setCargo("Secretario de Limpeza");
         funcionario2.setJornadaTrabalho("40h");
 
@@ -87,14 +87,14 @@ public class Main {
         funcionario4.setAreaAtuacao("Banco de Dados");
 
 
-//      funService.save(funcionario1, 1);
-//    funService.save(funcionario2, 1);
-        funService.save(funcionario3, 1);
+//        funLimpezaService.save(funcionario1, 1,0);
+ //       funLimpezaService.save(funcionario2, 1,0);
+//        funService.save(funcionario3, 1);
 //      funService.save(funcionario4);
 
-//      funService.findById();
+      funLimpezaService.findById(0);
 //      funService.deleteById();
-//       funService.findAll();
+       funLimpezaService.findAll();
 
 
 
@@ -148,7 +148,7 @@ public class Main {
         Pesquisa pesquisa1 = new Pesquisa();
         pesquisa1.setHorasTrabalhadas(20);
 
-        pesquisaService.save(pesquisa1, 1,3);
+//        pesquisaService.save(pesquisa1, 1,3);
 
 
 

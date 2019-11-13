@@ -1,23 +1,19 @@
 package br.com.persistencia.java.model;
 
 import javax.persistence.Entity;
+import javax.persistence.OneToOne;
 import javax.persistence.PrimaryKeyJoinColumn;
 
 @Entity
-@PrimaryKeyJoinColumn(name = "idFuncionario")
 public class FuncionarioLimpeza extends Funcionario {
 
-    private long idResponsavel;
     private String cargo;
     private String jornadaTrabalho;
 
-    public long getIdResponsavel() {
-        return idResponsavel;
-    }
+    @OneToOne
+    FuncionarioLimpeza funcionarioSuperior;
 
-    public void setIdResponsavel(long idResponsavel) {
-        this.idResponsavel = idResponsavel;
-    }
+
 
     public String getCargo() {
         return cargo;
@@ -38,12 +34,20 @@ public class FuncionarioLimpeza extends Funcionario {
     public FuncionarioLimpeza() {
     }
 
+    public FuncionarioLimpeza getFuncionarioSuperior() {
+        return funcionarioSuperior;
+    }
+
+    public void setFuncionarioSuperior(FuncionarioLimpeza funcionarioSuperior) {
+        this.funcionarioSuperior = funcionarioSuperior;
+    }
+
     @Override
     public String toString() {
         return "FuncionarioLimpeza{" +
-                "idResponsavel=" + idResponsavel +
-                ", cargo='" + cargo + '\'' +
+                "cargo='" + cargo + '\'' +
                 ", jornadaTrabalho='" + jornadaTrabalho + '\'' +
+                ", funcionarioSuperior=" + funcionarioSuperior +
                 '}';
     }
 }
