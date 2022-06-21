@@ -11,7 +11,7 @@
     <properties>
         <java.version>1.8</java.version>
         <hibernate.version>5.2.10.Final</hibernate.version>
-        <mysql.connector.java.version>5.0.8</mysql.connector.java.version>
+        <mysql.connector.java.version>8.0.28</mysql.connector.java.version>
         <compiler.version>3.6.1</compiler.version>
     </properties>
 
